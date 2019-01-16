@@ -4,6 +4,7 @@ function resolve(dir) {
     return path.join(__dirname, dir)
 }
 
+// 配置详见https://cli.vuejs.org/zh/config/
 module.exports = {
     lintOnSave: true,
     devServer: {
@@ -18,5 +19,7 @@ module.exports = {
             .set('@components', resolve('src/components'))
             .set('@router', resolve('src/router'))
             .set('@vuex', resolve('src/vuex'))
+            .set('@util', resolve('src/util'))
+            .set('@config', resolve('src/config'))
     }
 }
