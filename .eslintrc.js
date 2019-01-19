@@ -11,11 +11,7 @@ module.exports = {
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         "indent": ["error", 4],
-        "vue/script-indent": ["error", 4, {
-            "baseIndent": 1,
-            "switchCase": 0,
-            "ignores": []
-        }],
+        "vue/script-indent": ["error", 4],
         "vue/html-indent": ["error", 4, {
             "attribute": 1,
             "closeBracket": 0,
@@ -43,7 +39,16 @@ module.exports = {
                 ["template", "render"],
                 "renderError"
             ]
-        }]
+        }],
+        "vue/html-self-closing": ["error", {
+            "html": {
+                "void": "never",
+                "normal": "never",
+                "component": "never"
+            },
+            "svg": "never",
+            "math": "never"
+        }],
     },
     parserOptions: {
         parser: 'babel-eslint'

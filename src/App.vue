@@ -1,6 +1,7 @@
 <template>
     <div id="app">
-        <router-view />
+        <!-- 主视图 -->
+        <router-view name="main" />
     </div>
 </template>
 

@@ -2,9 +2,6 @@
 function isArray(target) {
     return Object.prototype.toString.call(target) == '[object Array]'
 }
-function isObject(target) {
-    return Object.prototype.toString.call(target) == '[object Object]'
-}
 function isFucntion(target) {
     return Object.prototype.toString.call(target) == '[object Function]'
 }
@@ -20,7 +17,7 @@ function noop() {}
  * * * @param {Function} callback(list) 得到list后调用callback
  * * * * @param {Array} list 数据列表
  * * @param {Number} initPage 初始页 默认1
- * * @param {Number} limit 每页数据长度限制 设置时length<limit即到达最终页,不存在时length=0到达最终页
+ * * @param {Number} limit 每页数据长度限制 设置时length < limit即到达最终页,不存在时length=0到达最终页
  * * @param {Array} initList 初始list数据 默认[]
  * * @param {Object} initFilter 初始筛选 默认{}
  * * @param {Boolean} isConcat next下一页时是否使用array.concat, 一般移动端无限滚动使用; 默认为true

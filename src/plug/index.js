@@ -1,17 +1,17 @@
 import mixin from './mixin'
+import directive from './directive'
 import filter from './filter'
-import methods from './methods'
 
 const plug = {}
-plug.install = function (Vue, options) {
+plug.install = function (Vue) {
+    // 自定义指令
+    directive()
+
     // 过滤器
     filter()
 
     // 注入组件
     Vue.mixin(mixin)
-
-    // 添加实例方法
-    methods()
 }
 
 export default plug

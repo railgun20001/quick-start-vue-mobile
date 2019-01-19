@@ -21,5 +21,6 @@ module.exports = {
             .set('@vuex', resolve('src/vuex'))
             .set('@util', resolve('src/util'))
             .set('@config', resolve('src/config'))
+            .set('@data', resolve('src/data'))
     }
 }

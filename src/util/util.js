@@ -27,44 +27,18 @@ function isNumber(num) {
 }
 
 /**
- * 判断字符串是否为json格式(不严格检验)
- * @param {Boolean} strict 是否为严格模式,非严格模式只追求不报错,严格使用正则检测
+ * 判断字符串是否为json格式
  */
-function isJSON(str, strict = false) {
-    if (strict) {
-        if (pass_object && isObject(str)) return true
-
-        if (!isString(str)) return false
-
-        str = str.replace(/\s/g, '').replace(/\n|\r/, '')
-
-        if (/^\{(.*?)\}$/.test(str))
-            return /"(.*?)":(.*?)/g.test(str)
-
-        if (/^\[(.*?)\]$/.test(str)) {
-            return str.replace(/^\[/, '')
-                .replace(/\]$/, '')
-                .replace(/},{/g, '}\n{')
-                .split(/\n/)
-                .map(function (s) {
-                    return isJSON(s)
-                })
-                .reduce(function (prev, curr) {
-                    return !!curr
-                })
+function isJSON(str) {
+    if (isString(str)) {
+        try {
+            JSON.parse(str)
+            return true
+        } catch (e) {
+            return false
         }
-        return false
-    } else {
-        if (isString(str)) {
-            try {
-                JSON.parse(str)
-                return true
-            } catch (e) {
-                return false
-            }
-        }
-        console.error('函数isJSON: It is not a string!')
     }
+    console.error('函数isJSON: It is not a string!')
 }
 
 // 检测是否为空对象,非对象或非空返回false
@@ -336,7 +310,7 @@ function formatMoney(num, currency = false) {
     if (!num) {
         num = '0'
     }
-    num = num.toString().replace(/\$|\,/g, '')
+    num = num.toString().replace(/\$|,/g, '')
     if (isNaN(num))
         num = '0'
     let absNum = Math.abs(num)

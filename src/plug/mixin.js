@@ -63,7 +63,7 @@ export default {
         // 微信jssdk设置,安卓设备专用
         // 每个页面只用调用一次就行
         wxConfig(jsApiList) {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
                 // ios 设备进入程序已经进行js-sdk签名
                 if (window.__wxjs_is_wkwebview === true) {
                     resolve()
