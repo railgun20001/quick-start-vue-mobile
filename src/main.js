@@ -22,6 +22,11 @@ var EventBus = new Vue()
 Vue.prototype.$EventBus = EventBus
 
 /* 推荐插件,不使用的注释掉,也可以直接在使用的文件里引用 */
+// 滚动触底监听,用于移动端列表下一页加载
+// https://github.com/ElemeFE/vue-infinite-scroll
+import infiniteScroll from 'vue-infinite-scroll'
+Vue.use(infiniteScroll)
+
 // 微信jssdk
 // https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
 // 微信jssdkbug,如果其他插件引入过weixin-js-sdk,那么wx会为空,见https://github.com/yanxi-me/weixin-js-sdk/issues/10

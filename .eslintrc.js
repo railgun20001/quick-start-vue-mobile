@@ -11,7 +11,11 @@ module.exports = {
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         "indent": ["error", 4],
-        "vue/script-indent": ["error", 4],
+        "vue/script-indent": ["error", 4, {
+            "baseIndent": 0,
+            "switchCase": 0,
+            "ignores": []
+        }],
         "vue/html-indent": ["error", 4, {
             "attribute": 1,
             "closeBracket": 0,
@@ -48,6 +52,20 @@ module.exports = {
             },
             "svg": "never",
             "math": "never"
+        }],
+        "array-bracket-newline": ["error", {
+            "multiline": true
+        }],
+        "array-element-newline": ["error", {
+            "multiline": true
+        }],
+        "vue/no-unused-vars": "off",
+        "vue/max-attributes-per-line": ["error", {
+            "singleline": 10,
+            "multiline": {
+                "max": 1,
+                "allowFirstLine": false
+            }
         }],
     },
     parserOptions: {
