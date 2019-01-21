@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@views/index'
 import list from '@views/list'
+import swiper from '@views/swiper'
 
 Vue.use(Router)
 
@@ -28,6 +29,16 @@ export default new Router({
             },
             meta: {
                 title: '列表',
+            },
+        },
+        {
+            path: '/swiper',
+            name: 'swiper',
+            components: {
+                main: swiper,
+            },
+            meta: {
+                title: '轮播图',
             },
         },
     ]

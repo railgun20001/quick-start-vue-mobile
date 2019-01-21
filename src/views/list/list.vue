@@ -67,7 +67,6 @@ export default {
     methods: {
         // 获取数据
         nextPage() {
-            console.log(1)
             this.pageManage.next()
         },
     },

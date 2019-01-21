@@ -55,6 +55,17 @@ input[type="search"] {
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
+
+// swiper 轮播图
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.swiper-pagination-bullet-active {
+    background: $primary !important;
+}
 /* reset */
 
 .clamp_1 {

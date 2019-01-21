@@ -27,6 +27,19 @@ Vue.prototype.$EventBus = EventBus
 import infiniteScroll from 'vue-infinite-scroll'
 Vue.use(infiniteScroll)
 
+// swiper轮播图
+// https://github.com/surmon-china/vue-awesome-swiper
+import 'swiper/dist/css/swiper.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+Vue.use(VueAwesomeSwiper, {
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+    },
+})
+
 // 微信jssdk
 // https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
 // 微信jssdkbug,如果其他插件引入过weixin-js-sdk,那么wx会为空,见https://github.com/yanxi-me/weixin-js-sdk/issues/10
