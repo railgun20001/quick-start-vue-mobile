@@ -21,7 +21,7 @@ export default new Router({
             },
         },
         {
-            path: '/',
+            path: '/list',
             name: 'list',
             components: {
                 main: list,

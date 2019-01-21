@@ -150,22 +150,4 @@ PageManage.prototype.next = function(handleList) {
     this.getDataFunc(params, handleList)
 }
 
-/**
- * 筛选
- * @param {Object} filter
- * @param {Function} handleList
- * 使用例示: pageManage.filter({state: 1}, ({list, oldList}) => {})
- */
-PageManage.prototype.filterDown = function(filter, handleList) {
-    this._init()
-    this.filter = filter
-    var params = {
-        page: this.page,
-        limit: this.options.limit,
-        ...this.filter,
-    }
-
-    this.getDataFunc(params, handleList)
-}
-
 export default PageManage

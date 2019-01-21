@@ -1,0 +1,145 @@
+// 淘宝flexible方案字体设置
+@mixin font($font-size) {
+    $font-size-unit: $font-size / 2;
+    font-size: $font-size-unit;
+    [data-dpr="2"] & {
+        font-size: $font-size-unit * 2;
+    }
+    [data-dpr="3"] & {
+        font-size: $font-size-unit * 3;
+    }
+}
+
+// 常用button
+@mixin common_button($width: pxtorem(200px), $height: pxtorem(80px)) {
+    @include font($base_font);
+    box-sizing: border-box;
+    width: $width;
+    height: $height;
+    border-radius: pxtorem(10px);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $primary;
+}
+
+// 取消button
+@mixin cancle_button($width: pxtorem(200px), $height: pxtorem(80px)) {
+    @include font($base_font);
+    box-sizing: border-box;
+    width: $width;
+    height: $height;
+    border-radius: pxtorem(10px);
+    border: 1px solid $border;
+    color: $disabled;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// 底部按钮
+@mixin bottom_button($height: pxtorem(104px)) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $height;
+    background: $primary;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    @include font($base_font);
+}
+
+// placeholder
+@mixin placeholder() {
+    &::-webkit-input-placeholder { /* WebKit browsers */
+        @content;
+    }
+    &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+        @content;
+    }
+    &::-moz-placeholder { /* Mozilla Firefox 19+ */
+        @content;
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10+ */
+        @content;
+    }
+}
+
+// html
+@mixin html() {
+    position: relative;
+    overflow: hidden;
+
+    /deep/ {
+        * {
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            -webkit-box-sizing: border-box !important;
+            word-wrap: break-word !important;
+        }
+
+        table {
+            margin-bottom: 10px;
+            border-collapse: collapse;
+            display: table;
+            width: 100% !important
+        }
+
+        td, th {
+            word-wrap: break-word;
+            word-break: break-all;
+            padding: 5px 10px;
+            border: 1px solid #DDD
+        }
+
+        caption {
+            border: 1px dashed #DDD;
+            border-bottom: 0;
+            padding: 3px;
+            text-align: center
+        }
+
+        th {
+            border-top: 2px solid #BBB;
+            background: #f7f7f7
+        }
+
+        td p {
+            margin: 0;
+            padding: 0
+        }
+
+        form {
+            display: none !important
+        }
+
+        .tc {
+            text-align: center
+        }
+
+        .tl {
+            text-align: left
+        }
+
+        .tr {
+            text-align: right
+        }
+    }
+
+    @media screen and (min-width: 0\0) and (min-resolution:72dpi) {
+        /deep/ {
+            table {
+                table-layout: fixed !important
+            }
+
+            td, th {
+                width: auto !important
+            }
+        }
+    }
+}

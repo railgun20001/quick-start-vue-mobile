@@ -1,0 +1,9 @@
+// z-index 管理
+$z-index: (
+    pop: 1000,
+    footer: 900,
+);
+
+@mixin z($key, $childValue: 0) {
+    z-index: map-get($z-index, $key) + $childValue;
+}
