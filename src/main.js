@@ -40,6 +40,11 @@ Vue.use(VueAwesomeSwiper, {
     },
 })
 
+// 上传图片
+// https://github.com/Vanthink-UED/vue-core-image-upload
+import VueCoreImageUpload from 'vue-core-image-upload'
+Vue.component('vue-core-image-upload', VueCoreImageUpload)
+
 // 微信jssdk
 // https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115
 // 微信jssdkbug,如果其他插件引入过weixin-js-sdk,那么wx会为空,见https://github.com/yanxi-me/weixin-js-sdk/issues/10

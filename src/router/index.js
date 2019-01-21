@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@views/index'
-import list from '@views/list'
-import swiper from '@views/swiper'
+
+// 例示页面,可删
+import list from '../example/list'
+import swiper from '../example/swiper'
+import upload from '../example/upload'
 
 Vue.use(Router)
 
@@ -39,6 +42,16 @@ export default new Router({
             },
             meta: {
                 title: '轮播图',
+            },
+        },
+        {
+            path: '/upload',
+            name: 'upload',
+            components: {
+                main: upload,
+            },
+            meta: {
+                title: '上传图片',
             },
         },
     ]
