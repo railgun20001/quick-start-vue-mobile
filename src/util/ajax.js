@@ -8,8 +8,8 @@ import store from '@vuex'
 import util from '@util/util'
 
 // AJAX默认配置
-axios.defaults.withCredentials = true
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'	// Post的默认ContentType
+axios.defaults.timeout = 10000
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8'	// Post的默认ContentType
 
 // 请求通用处理
 axios.defaults.transformRequest = [
@@ -28,12 +28,8 @@ axios.interceptors.request.use(function (config) {
 
 // 响应通用处理
 axios.interceptors.response.use(function (response) {
-    var res = response.data
-    return res
+    return response.data
 }, function (error) {
-    if (error.toString().includes('500')) {
-        console.log(error)
-    }
     return Promise.reject(error)
 })
 
@@ -43,7 +39,7 @@ axios.interceptors.response.use(function (response) {
  * @param {String} methods api方法
  * @param {Object} axiosParams 传递给axios除method与url以外的其他参数
  */
-function ajax(model, method, axiosParams, config={}) {
+function ajax(model, method, axiosParams={}, config={}) {
     var defaultConfig = {
         showLoading: true, // 是否显示loading
         showError: true, // status为0时是否显示报错信息
@@ -83,10 +79,10 @@ function ajax(model, method, axiosParams, config={}) {
             // Status Code: 200 OK
             _handleSuccess(res, config)
             resolve(res)
-        }).catch((res) => {
+        }).catch((error) => {
             // Status Code: 404 or 500 and so on ERROR
-            _handleFail(res, config)
-            reject(res)
+            _handleFail(error, config)
+            reject(error)
         })
     })
 }
@@ -114,11 +110,16 @@ function _handleSuccess(res, config) {
 }
 
 // 处理错误返回
-function _handleFail(res, config) {
-    _handleCommon(res, config)
+function _handleFail(error, config) {
+    _handleCommon(error, config)
 
-    if (res.toString().includes('500') && config.showWrong) {
-        util.message('系统错误')
+    switch (error.response.status) {
+    // 服务器报错
+    case 500:
+        if (config.showWrong) {
+            util.message(config.wrongMessage || '系统错误')
+        }
+        break;
     }
 }
 

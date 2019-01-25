@@ -9,7 +9,7 @@
             @errorhandle="errorhandle"
             :compress="85"
             text=""
-            url="your upload url"
+            url="your-upload-url"
         >
             <img class="upload_default_img" v-if="!imageUrl" src="/static/img/img3.png">
             <img class="upload_img" v-else :src="imageUrl">
@@ -32,8 +32,7 @@ export default {
         // 当图片上传过程中触发
         imagechanged(file) {
             console.log(file)
-            this.imageUrl = URL.createObjectURL(file);
-            console.log(this.imageUrl)
+            this.imageUrl = URL.createObjectURL(file)
             this.$store.commit('taggleLoading', true)
         },
 

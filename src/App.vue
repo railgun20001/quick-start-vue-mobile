@@ -1,10 +1,7 @@
 <template>
     <div id="app">
         <!-- 主视图 -->
-        <router-view
-            id="main"
-            name="main"
-        ></router-view>
+        <router-view id="main" name="main"></router-view>
     </div>
 </template>
 
@@ -42,10 +39,10 @@ img {
     vertical-align: bottom;
 }
 input,button,select,textarea {
-    outline:none
+    outline:none;
 }
 textarea {
-    resize:none
+    resize:none;
 }
 
 // input type=search 取消border与删除按钮

@@ -17,8 +17,8 @@ const API = {
     // 通用模块
     common: {
         baseURL: {
-            development:'http://test.ittun.com/public',
-            production: 'https://www.test.cn/public',
+            development:'http://test.com/public/',
+            production: 'https://www.test.cn/public/',
         },
         methods: {
             /**
@@ -26,13 +26,21 @@ const API = {
              */
             test: {
                 method: 'get',
-                url: '/index/test/test',
+                url: 'index/test/test',
+            },
+
+            /**
+             * 写好注释
+             */
+            test2: {
+                method: 'post',
+                url: 'index/test/test',
             },
         },
     },
 }
 
-module.exports = {
+export  {
     ENV,
     DEBUG,
     API,
